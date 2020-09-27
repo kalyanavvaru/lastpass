@@ -1,5 +1,6 @@
 # lastpass
 ```bashlastpass commands to pull and add to ssh keys```
+
 ## install lastpass cli
 ```bashapt-get install lastpass-cli```
 
@@ -14,7 +15,8 @@ echo -e "\n3. last pass item name? "; \
 read itemname; \
 printf "Private Key: %s\nPublic Key: %s" \
 "$(cat ~/.ssh/$keyname)" "$(cat ~/.ssh/$keyname.pub)"| \
-lpass add --non-interactive --sync=now "SSH/${itemname}" --note-type=ssh-key```
+lpass add --non-interactive --sync=now "SSH/${itemname}" --note-type=ssh-key
+```
 
 # pull the ssh key from lastpass and add to local ssh
 ```bash
@@ -24,7 +26,8 @@ echo -e "\n3. last pass item name? "; \
 read itemname; \
 printf "Private Key: %s\nPublic Key: %s" \
 "$(cat ~/.ssh/$keyname)" "$(cat ~/.ssh/$keyname.pub)"| \
-lpass add --non-interactive --sync=now "SSH/${itemname}" --note-type=ssh-key```
+lpass add --non-interactive --sync=now "SSH/${itemname}" --note-type=ssh-key
+```
 
 # list of keys
 ```bash
@@ -40,7 +43,8 @@ while read -r line; do
         #echo "${BASH_REMATCH[0]}"
         echo "${BASH_REMATCH[1]}"
         #echo "${BASH_REMATCH[2]}"
-done <<< $output```
+done <<< $output
+```
 
 # export as keys
 ```bash
