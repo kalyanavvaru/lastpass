@@ -1,13 +1,19 @@
 # lastpass
-```bashlastpass commands to pull and add to ssh keys```
+```bash 
+lastpass commands to pull and add to ssh keys
+```
 
 ## install lastpass cli
-```bashapt-get install lastpass-cli```
+```bash 
+apt-get install lastpass-cli
+```
 
 # login to your lastpass account
-```bashlpass login <your_email@your_email_server>```
+```bash
+lpass login <your_email@your_email_server>
+```
 
-# add your local ssh with optional passphrase
+# add local ssh keys to lastpass
 ```bash
 echo -e "\n\n 1. which local ssh key to add? (for e.g ~/.ssh/id_rsa, enter id_rsa)"; \
 read keyname; \
@@ -18,35 +24,7 @@ printf "Private Key: %s\nPublic Key: %s" \
 lpass add --non-interactive --sync=now "SSH/${itemname}" --note-type=ssh-key
 ```
 
-# pull the ssh key from lastpass and add to local ssh
-```bash
-echo -e "\n\n 1. which local ssh key to add? (for e.g ~/.ssh/id_rsa, enter id_rsa)"; \
-read keyname; \
-echo -e "\n3. last pass item name? "; \
-read itemname; \
-printf "Private Key: %s\nPublic Key: %s" \
-"$(cat ~/.ssh/$keyname)" "$(cat ~/.ssh/$keyname.pub)"| \
-lpass add --non-interactive --sync=now "SSH/${itemname}" --note-type=ssh-key
-```
-
-# list of keys
-```bash
-#!/bin/bash
-
-output=$(lpass ls SSH | tail -n +2)
-#echo "$output"
-pat='SSH\/(.*?) \[id: (.*?)\]'
-
-while read -r line; do
-        [[ "$line" =~ $pat ]]
-        #echo "$line"
-        #echo "${BASH_REMATCH[0]}"
-        echo "${BASH_REMATCH[1]}"
-        #echo "${BASH_REMATCH[2]}"
-done <<< $output
-```
-
-# export as keys
+# download lastpass ssh keys to local
 ```bash
 #!/bin/bash
 output=$(lpass ls SSH | tail -n +2) 
