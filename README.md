@@ -47,8 +47,8 @@ done <<< $output
 ```
 
 # export as keys
+```bash
 #!/bin/bash
-
 output=$(lpass ls SSH | tail -n +2) 
 #echo "$output"
 pat='SSH\/(.*?) \[id: (.*?)\]'
@@ -87,3 +87,4 @@ echo $privateKey > ~/.ssh/${selected_lpass_key}
 echo $publicKey > ~/.ssh/${selected_lpass_key}.pub
 echo "Here are the new keys listed\n"
 ls -al ~/.ssh/$selected_lpass_key*
+```
