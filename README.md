@@ -15,6 +15,7 @@ lpass login <your_email@your_email_server>
 
 # add local ssh keys to lastpass
 ```bash
+#!/bin/bash
 echo -e "\n\n 1. which local ssh key to add? (for e.g ~/.ssh/id_rsa, enter id_rsa)"; \
 read keyname; \
 echo -e "\n3. last pass item name? "; \
