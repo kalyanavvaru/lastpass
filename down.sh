@@ -9,7 +9,8 @@ while read -r line; do
 	#echo "$line"
 	#echo "${BASH_REMATCH[0]}" 
 	# echo "${BASH_REMATCH[1]}" 
-	lpass_ssh_keys+=( ${BASH_REMATCH[1]} )
+	
+	lpass_ssh_keys+=( $(echo "$line" | sed -E 's/^SSH\/(.*) \[.*/\1/') )
 	#echo "${BASH_REMATCH[2]}" 
 done <<< $output
 
